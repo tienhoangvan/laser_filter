@@ -168,9 +168,12 @@ bool laser_filters::LaserScanBoxFilter::update(
 
 bool laser_filters::LaserScanBoxFilter::inBox(tf::Point &point){
   return
-    point.x() < max_.x() && point.x() > min_.x() && 
-    point.y() < max_.y() && point.y() > min_.y() &&
-    point.z() < max_.z() && point.z() > min_.z();
+    //point.x() < max_.x() && point.x() > min_.x() && 
+    //point.y() < max_.y() && point.y() > min_.y() &&
+    //point.z() < max_.z() && point.z() > min_.z();
+    point.x() < config_.max_x && point.x() > config_.min_x && 
+    point.y() < config_.max_y && point.y() > config_.min_y &&
+    point.z() < config_.max_z && point.z() > config_.min_z;
 }
 
 void laser_filters::LaserScanBoxFilter::reconfigureCB(laser_filters::BoxFilterConfig& config, uint32_t level)
